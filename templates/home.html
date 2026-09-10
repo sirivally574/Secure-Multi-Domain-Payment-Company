@@ -1,0 +1,151 @@
+{% extends "base.html" %}
+
+{% block title %}SecurePayX | Secure Payments{% endblock %}
+
+{% block content %}
+
+<section class="hero-section">
+
+    <div class="hero-content">
+
+        <div class="security-badge">
+            ● SECURITY-FIRST PAYMENT PLATFORM
+        </div>
+
+        <h1>
+            Payments built with
+            <span>security at every layer.</span>
+        </h1>
+
+        <p>
+            SecurePayX is a cybersecurity-focused payment prototype
+            demonstrating secure authentication, authorization, API security,
+            transaction validation and real-time security monitoring.
+        </p>
+
+        <div class="hero-actions">
+            {% if session.get("username") %}
+                <a href="{{ url_for('customer_portal') }}" class="primary-button">
+                    Open Portal →
+                </a>
+            {% else %}
+                <a href="{{ url_for('register') }}" class="primary-button">
+                    Get Started →
+                </a>
+
+                <a href="{{ url_for('security_info') }}" class="secondary-button">
+                    Explore Security
+                </a>
+            {% endif %}
+        </div>
+
+    </div>
+
+    <div class="security-visual">
+
+        <div class="shield-icon">◆</div>
+
+        <div class="security-status">
+            <span class="status-dot"></span>
+            SYSTEM SECURE
+        </div>
+
+        <div class="security-lines">
+            <div>✓ Authentication</div>
+            <div>✓ Authorization</div>
+            <div>✓ API Protection</div>
+            <div>✓ Transaction Validation</div>
+            <div>✓ Activity Monitoring</div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <div class="section-title">
+        <p class="eyebrow">SECURITY ARCHITECTURE</p>
+        <h2>One platform. Multiple secure layers.</h2>
+    </div>
+
+    <div class="feature-grid">
+
+        <div class="feature-card">
+            <div class="feature-icon">🔐</div>
+            <h3>Secure Authentication</h3>
+            <p>
+                Password hashing, credential validation and protected sessions.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">🛡️</div>
+            <h3>Role-Based Access</h3>
+            <p>
+                Customer and administrator capabilities are separated.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3>Risk Engine</h3>
+            <p>
+                Demo transactions pass through security and validation checks.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>Security Monitoring</h3>
+            <p>
+                Important authentication and transaction events are logged.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="architecture-section">
+
+    <div class="section-title">
+        <p class="eyebrow">MULTI-APPLICATION DESIGN</p>
+        <h2>Secure application separation</h2>
+    </div>
+
+    <div class="architecture-flow">
+
+        <div class="architecture-box">
+            <strong>Main Website</strong>
+            <small>Public Layer</small>
+        </div>
+
+        <span>→</span>
+
+        <div class="architecture-box">
+            <strong>API Gateway</strong>
+            <small>Protected API</small>
+        </div>
+
+        <span>→</span>
+
+        <div class="architecture-box">
+            <strong>Customer Portal</strong>
+            <small>User Services</small>
+        </div>
+
+        <span>→</span>
+
+        <div class="architecture-box">
+            <strong>Payment Engine</strong>
+            <small>Transaction Layer</small>
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

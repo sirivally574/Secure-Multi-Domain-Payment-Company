@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block title %}Security Architecture | SecurePayX{% endblock %}
+
+{% block content %}
+
+<main class="dashboard">
+
+    <div class="page-heading">
+        <div>
+            <p class="eyebrow">SECURITY ARCHITECTURE</p>
+            <h1>Why SecurePayX is Secure</h1>
+            <p>Security controls are applied across multiple application layers.</p>
+        </div>
+    </div>
+
+
+    <div class="info-grid">
+
+        <div class="info-card">
+            <h3>🔐 Authentication</h3>
+            <p>
+                Users must authenticate before accessing protected customer
+                or administrative resources.
+            </p>
+        </div>
+
+        <div class="info-card">
+            <h3>🛡️ Authorization</h3>
+            <p>
+                Role-based access control separates customer capabilities
+                from administrator capabilities.
+            </p>
+        </div>
+
+        <div class="info-card">
+            <h3>🔑 Password Protection</h3>
+            <p>
+                Passwords are converted into secure hashes and are never
+                stored as plain text.
+            </p>
+        </div>
+
+        <div class="info-card">
+            <h3>🔌 API Security</h3>
+            <p>
+                Backend API endpoints validate authentication and restrict
+                access to authorized users.
+            </p>
+        </div>
+
+        <div class="info-card">
+            <h3>💳 Payment Security</h3>
+            <p>
+                Demo transactions are validated for amount, recipient,
+                balance and basic transaction risk.
+            </p>
+        </div>
+
+        <div class="info-card">
+            <h3>📊 Monitoring</h3>
+            <p>
+                Authentication, authorization and payment security events
+                are recorded for administrator monitoring.
+            </p>
+        </div>
+
+    </div>
+
+
+    <div class="architecture-detail">
+
+        <p class="eyebrow">SECURE REQUEST FLOW</p>
+
+        <h2>Defense in depth</h2>
+
+        <div class="flow-list">
+
+            <div>01 <strong>Authentication</strong> — Verify the user.</div>
+
+            <div>02 <strong>Authorization</strong> — Verify permissions.</div>
+
+            <div>03 <strong>Input Validation</strong> — Validate request data.</div>
+
+            <div>04 <strong>Security Checks</strong> — Evaluate transaction risk.</div>
+
+            <div>05 <strong>Transaction Processing</strong> — Process demo payment.</div>
+
+            <div>06 <strong>Logging</strong> — Record security activity.</div>
+
+        </div>
+
+    </div>
+
+</main>
+
+{% endblock %}

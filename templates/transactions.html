@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block title %}Transactions | SecurePayX{% endblock %}
+
+{% block content %}
+
+<main class="dashboard">
+
+    <div class="page-heading">
+        <div>
+            <p class="eyebrow">TRANSACTION LEDGER</p>
+            <h1>Payment History</h1>
+            <p>Your SecurePayX transaction activity.</p>
+        </div>
+    </div>
+
+    <div class="table-card">
+
+        {% if transactions %}
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>Transaction ID</th>
+                    <th>Sender</th>
+                    <th>Recipient</th>
+                    <th>Amount</th>
+                    <th>Risk</th>
+                    <th>Status</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+            {% for transaction in transactions %}
+
+                <tr>
+                    <td>{{ transaction["transaction_id"] }}</td>
+                    <td>{{ transaction["sender"] }}</td>
+                    <td>{{ transaction["recipient"] }}</td>
+                    <td>₹{{ "%.2f"|format(transaction["amount"]) }}</td>
+                    <td>{{ transaction["risk_score"] }}/100</td>
+
+                    <td>
+                        <span class="status-badge {{ transaction['status']|lower }}">
+                            {{ transaction["status"] }}
+                        </span>
+                    </td>
+
+                    <td>{{ transaction["created_at"] }}</td>
+                </tr>
+
+            {% endfor %}
+
+            </tbody>
+
+        </table>
+
+        {% else %}
+
+        <div class="empty-state">
+            <div>📋</div>
+            <h3>No transactions yet</h3>
+            <p>Your demo payments will appear here.</p>
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</main>
+
+{% endblock %}

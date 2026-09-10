@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}Customer Portal | SecurePayX{% endblock %}
+
+{% block content %}
+
+<main class="dashboard">
+
+    <div class="page-heading">
+        <div>
+            <p class="eyebrow">CUSTOMER PORTAL</p>
+            <h1>Welcome, {{ user["username"] }} 👋</h1>
+            <p>Your secure payment workspace.</p>
+        </div>
+
+        <span class="role-badge">CUSTOMER</span>
+    </div>
+
+    <div class="dashboard-grid">
+
+        <div class="balance-card">
+            <p>AVAILABLE DEMO BALANCE</p>
+            <h2>₹{{ "%.2f"|format(user["balance"]) }}</h2>
+
+            <span>
+                Demo funds only — no real money involved.
+            </span>
+        </div>
+
+        <div class="dashboard-card">
+            <div class="card-icon">🛡️</div>
+            <h3>Security Status</h3>
+            <p>Your account is protected by SecurePayX security controls.</p>
+            <a href="{{ url_for('security_center') }}">View Security →</a>
+        </div>
+
+    </div>
+
+
+    <div class="action-grid">
+
+        <a href="{{ url_for('payment') }}" class="action-card">
+            <span>💳</span>
+            <h3>Make Payment</h3>
+            <p>Send a secure demo payment.</p>
+        </a>
+
+        <a href="{{ url_for('transactions') }}" class="action-card">
+            <span>📋</span>
+            <h3>Transactions</h3>
+            <p>View your payment history.</p>
+        </a>
+
+        <a href="{{ url_for('security_info') }}" class="action-card">
+            <span>🔐</span>
+            <h3>Security</h3>
+            <p>Learn how SecurePayX protects transactions.</p>
+        </a>
+
+    </div>
+
+</main>
+
+{% endblock %}

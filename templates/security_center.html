@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block title %}Security Center | SecurePayX{% endblock %}
+
+{% block content %}
+
+<main class="dashboard">
+
+    <div class="page-heading">
+        <div>
+            <p class="eyebrow">SECURITY COMMAND CENTER</p>
+            <h1>Security Controls</h1>
+            <p>Overview of the protections implemented in SecurePayX.</p>
+        </div>
+
+        <span class="secure-badge">● SYSTEM SECURE</span>
+    </div>
+
+
+    <div class="security-grid">
+
+        <div class="security-card">
+            <span>🔐</span>
+            <h3>Password Security</h3>
+            <p>Passwords are securely hashed before storage.</p>
+            <strong>✓ ACTIVE</strong>
+        </div>
+
+        <div class="security-card">
+            <span>🛡️</span>
+            <h3>Authorization</h3>
+            <p>Role-based access protects administrative functions.</p>
+            <strong>✓ ACTIVE</strong>
+        </div>
+
+        <div class="security-card">
+            <span>🔌</span>
+            <h3>API Security</h3>
+            <p>Protected APIs require authenticated sessions.</p>
+            <strong>✓ ACTIVE</strong>
+        </div>
+
+        <div class="security-card">
+            <span>✓</span>
+            <h3>Input Validation</h3>
+            <p>Server-side validation protects sensitive operations.</p>
+            <strong>✓ ACTIVE</strong>
+        </div>
+
+        <div class="security-card">
+            <span>🧾</span>
+            <h3>Security Logging</h3>
+            <p>Important security events are recorded.</p>
+            <strong>✓ ACTIVE</strong>
+        </div>
+
+        <div class="security-card">
+            <span>🔑</span>
+            <h3>Session Security</h3>
+            <p>Protected session cookies help secure authenticated access.</p>
+            <strong>✓ ACTIVE</strong>
+        </div>
+
+    </div>
+
+</main>
+
+{% endblock %}

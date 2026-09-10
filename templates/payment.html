@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block title %}Secure Payment | SecurePayX{% endblock %}
+
+{% block content %}
+
+<main class="dashboard">
+
+    <div class="page-heading">
+        <div>
+            <p class="eyebrow">PAYMENT APPLICATION</p>
+            <h1>Secure Demo Payment</h1>
+            <p>Every transaction passes through the SecurePayX risk engine.</p>
+        </div>
+    </div>
+
+    <div class="payment-layout">
+
+        <div class="payment-card">
+
+            <h2>Send Payment</h2>
+
+            <p class="muted">
+                This is a simulated transaction for cybersecurity demonstration.
+            </p>
+
+            <form method="POST">
+
+                <label>Recipient Username</label>
+
+                <input
+                    type="text"
+                    name="recipient"
+                    placeholder="Enter recipient"
+                    required
+                >
+
+                <label>Amount</label>
+
+                <div class="amount-input">
+                    <span>₹</span>
+                    <input
+                        type="number"
+                        name="amount"
+                        step="0.01"
+                        min="0.01"
+                        max="100000"
+                        placeholder="0.00"
+                        required
+                    >
+                </div>
+
+                <button type="submit" class="primary-button full">
+                    Run Security Check →
+                </button>
+
+            </form>
+
+        </div>
+
+
+        <div class="risk-preview">
+
+            <p class="eyebrow">TRANSACTION SECURITY</p>
+
+            <h2>Protected by multiple checks</h2>
+
+            <div class="check-list">
+                <div>✓ Authentication</div>
+                <div>✓ Authorization</div>
+                <div>✓ Input Validation</div>
+                <div>✓ Balance Verification</div>
+                <div>✓ Risk Evaluation</div>
+                <div>✓ Security Logging</div>
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+{% endblock %}

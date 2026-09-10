@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}SecurePayX{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<nav class="navbar">
+    <a href="{{ url_for('home') }}" class="brand">
+        <span>◆</span> SecurePayX
+    </a>
+
+    <div class="nav-links">
+        <a href="{{ url_for('home') }}">Home</a>
+
+        {% if session.get("username") %}
+            {% if session.get("role") == "admin" %}
+                <a href="{{ url_for('admin_portal') }}">Admin</a>
+            {% else %}
+                <a href="{{ url_for('customer_portal') }}">Portal</a>
+                <a href="{{ url_for('payment') }}">Pay</a>
+                <a href="{{ url_for('transactions') }}">Transactions</a>
+            {% endif %}
+
+            <a href="{{ url_for('security_center') }}">Security</a>
+            <a href="{{ url_for('logout') }}" class="nav-button">Logout</a>
+        {% else %}
+            <a href="{{ url_for('security_info') }}">Security</a>
+            <a href="{{ url_for('login') }}" class="nav-button">Login</a>
+        {% endif %}
+    </div>
+</nav>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <div class="flash-container">
+            {% for category, message in messages %}
+                <div class="flash {{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endwith %}
+
+{% block content %}{% endblock %}
+
+<footer>
+    <strong>SecurePayX</strong>
+    <span>Secure Multi-Domain Payment Prototype</span>
+    <span>M. Sirivally • 24071A05R1</span>
+</footer>
+
+</body>
+</html>

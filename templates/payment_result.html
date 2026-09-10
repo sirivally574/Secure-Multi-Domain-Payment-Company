@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block title %}Payment Result | SecurePayX{% endblock %}
+
+{% block content %}
+
+<main class="dashboard">
+
+    <div class="result-card {% if status == 'APPROVED' %}approved{% else %}blocked{% endif %}">
+
+        {% if status == "APPROVED" %}
+
+            <div class="result-icon">✓</div>
+
+            <p class="eyebrow">TRANSACTION VERIFIED</p>
+
+            <h1>Payment Approved</h1>
+
+            <p>Your demo transaction passed the security checks.</p>
+
+        {% else %}
+
+            <div class="result-icon">!</div>
+
+            <p class="eyebrow">SECURITY CONTROL ACTIVATED</p>
+
+            <h1>Payment Blocked</h1>
+
+            <p>The transaction did not pass all security checks.</p>
+
+        {% endif %}
+
+
+        <div class="transaction-summary">
+
+            <div>
+                <span>Transaction ID</span>
+                <strong>{{ transaction_id }}</strong>
+            </div>
+
+            <div>
+                <span>Recipient</span>
+                <strong>{{ recipient }}</strong>
+            </div>
+
+            <div>
+                <span>Amount</span>
+                <strong>₹{{ "%.2f"|format(amount) }}</strong>
+            </div>
+
+            <div>
+                <span>Risk Score</span>
+                <strong>{{ risk.risk_score }}/100</strong>
+            </div>
+
+            <div>
+                <span>Status</span>
+                <strong>{{ status }}</strong>
+            </div>
+
+        </div>
+
+
+        <div class="security-check-results">
+
+            <h3>Security Checks</h3>
+
+            {% for check, passed in risk.checks %}
+
+                <div class="check-result">
+                    <span>{{ "✓" if passed else "✕" }}</span>
+                    {{ check }}
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+
+        <a href="{{ url_for('customer_portal') }}" class="primary-button">
+            Back to Portal
+        </a>
+
+    </div>
+
+</main>
+
+{% endblock %}

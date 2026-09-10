@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}Register | SecurePayX{% endblock %}
+
+{% block content %}
+
+<div class="auth-page">
+
+    <div class="auth-card">
+
+        <div class="auth-logo">◆</div>
+
+        <p class="eyebrow">CREATE ACCOUNT</p>
+
+        <h1>Join SecurePayX</h1>
+
+        <p class="auth-subtitle">
+            Create a secure customer account.
+        </p>
+
+        <form method="POST">
+
+            <label>Username</label>
+
+            <input
+                type="text"
+                name="username"
+                placeholder="Choose a username"
+                required
+            >
+
+            <small>3–20 characters. Letters, numbers and underscores only.</small>
+
+            <label>Password</label>
+
+            <input
+                type="password"
+                name="password"
+                placeholder="Create a strong password"
+                required
+            >
+
+            <small>
+                8+ characters, uppercase, lowercase, number and special character.
+            </small>
+
+            <button type="submit" class="primary-button full">
+                Create Secure Account →
+            </button>
+
+        </form>
+
+        <p class="auth-footer">
+            Already registered?
+            <a href="{{ url_for('login') }}">Login</a>
+        </p>
+
+    </div>
+
+</div>
+
+{% endblock %}
